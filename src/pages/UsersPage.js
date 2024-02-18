@@ -23,23 +23,15 @@ const UsersPage = () => {
   }, []);
 
   const fetchUsers = async () => {
-    const response = await axios.get("http://localhost:8080/users", {
-      withCredentials: true,
-    });
+    const response = await axios.get("http://localhost:8080/users");
     setUsers(response.data);
   };
 
   const addUser = async () => {
-    await axios.post(
-      "http://localhost:8080/users",
-      {
-        name,
-        age: parseInt(age, 10),
-      },
-      {
-        withCredentials: true,
-      }
-    );
+    await axios.post("http://localhost:8080/users", {
+      name,
+      age: parseInt(age, 10),
+    });
     fetchUsers();
     setName("");
     setAge("");

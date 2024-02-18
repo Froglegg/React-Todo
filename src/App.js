@@ -5,10 +5,14 @@ import {
   Route,
   useLocation,
 } from "react-router-dom";
+import axios from "axios";
 import Navigation from "./components/Navigation";
 import LoginPage from "./pages/LoginPage";
 import UsersPage from "./pages/UsersPage";
 import TodosPage from "./pages/TodosPage";
+
+// Configure Axios to send cookies with every request
+axios.defaults.withCredentials = true;
 
 // Create a separate functional component to use hooks
 function WithNavigation({ children }) {
